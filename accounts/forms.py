@@ -1,18 +1,15 @@
-from django.forms import ModelForm, TextInput, PasswordInput
-from .models import Users
+from django.contrib.auth import get_user_model
+from django.contrib.auth.forms import UserCreationForm
+from django import forms
+from django.utils.translation import gettext_lazy as _
 
-class UserForm(ModelForm):
-	class Meta:
-		model = Users
-		fields = ['email', 'password']
-
-		widgets = {
-			"email": TextInput(attrs={
-				'class': 'form-control',
-				'placeholder': 'Электронная почта'
-				}),
-			"password": PasswordInput(attrs={
-				'class': 'form-control',
-				'placeholder': 'Пароль'
-				})
-		}
+User = get_user_model()
+class UserCreationForm(UserCreationForm):
+    email = forms.EmailField(
+        label=_("Email"),
+        max_length=254,
+        widget=forms.EmailInput(attrs={"autocomplete": "email"}),
+    )
+    class Meta(UserCreationForm.Meta):
+        model = User
+        fields = ("username", "email")

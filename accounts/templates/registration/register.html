@@ -6,10 +6,9 @@
 {% block content %}
 	<div class="signup">
 		<h1>Регистрация</h1>
-		<form method="post">
+		<form action="{% url 'register' %}" method="post">
 			{% csrf_token %}
-			{{form.email}}<br>
-			{{form.password}}<br>
+            {{ form }}<br>
 			<span>{{error}}</span><br>
 			<button class="btn btn-success" type="submit">Зарегистрироваться</button><br>
 			<span>Уже есть аккаунт?</span>

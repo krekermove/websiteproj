@@ -18,9 +18,14 @@
 			<li><a href="{% url 'tournaments' %}"><p>Турниры</p></a></li>
 			<li><a href="{% url 'about' %}"><p>О нас</p></a></li>
 		</ul>
-		<div class="register">
-			<a href="{% url 'register' %}"><img src="{% static 'main/img/sign-in.png' %}"></a>
-		</div>
+        <div class="auth">
+            {% if user.is_authenticated %}
+                <a href="{% url 'profile' %}">{{ user }}</a>
+                <a href="{% url 'logout' %}"><img src="{% static 'main/img/sign-in.png' %}"></a>
+            {% else %}
+                <a href="{% url 'login' %}"><img src="{% static 'main/img/reg.png' %}"></a>
+            {% endif %}
+        </div>
 	</div>
 
 	<!-- <nav class="navbar">

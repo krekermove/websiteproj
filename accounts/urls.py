@@ -1,8 +1,8 @@
-from django.urls import path
-from . import views
+from django.urls import path, include
+from .views import Register, Profile
 
 urlpatterns = [
-	path('register', views.register, name='register'),
-	path('login', views.login, name='login'),
-	path('', views.accounts, name='accounts')
-]	
+    path('', include('django.contrib.auth.urls')),
+    path('register/', Register.as_view(), name='register'),
+    path('profile/', Profile.as_view(), name='profile')
+]

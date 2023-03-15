@@ -1,47 +1,37 @@
+from django.contrib.auth import authenticate, login
 from django.shortcuts import render, redirect
-from .forms import UserForm
-from .models import Users 
+from django.views import View
+from .forms import UserCreationForm
 
-def accounts(request):
-	return render(request, 'accounts/accounts.html')
 
-def register(request):
-	error = ''
-	form = UserForm()
-	if request.method=='POST':
-		form = UserForm(request.POST)
-		if form.is_valid():
-			if Users.objects.filter(email=form.cleaned_data.get("email")):
-				error = 'Такой пользователь уже существует'
-			else:
-				form.save()
-				return redirect('accounts')
-		else:
-			error = 'Ошибка'
+class Register(View):
 
-	data = {
-		'form': form,
-		'error': error
-	}
-	return render(request, 'accounts/register.html', data)
+    template_name = 'registration/register.html'
 
-def login(request):
-	error = ''
-	form = UserForm()
+    def get(self, request):
+        context = {
+            'form': UserCreationForm()
+        }
+        return render(request, self.template_name, context)
 
-	if request.method=='POST':
-		form = UserForm(request.POST)
-		if form.is_valid():
-			if Users.objects.filter(email=form.cleaned_data.get("email")).filter(password=form.cleaned_data.get("password")):
-				return redirect('accounts')
-			else:
-				if form.cleaned_data.get("email") not in Users.objects.all():
-					error = 'Пользователь не найден или пароль не верный'
-		else:
-			error = 'Ошибка'
-	data = {
-		'form': form,
-		'error': error
-	}
+    def post(self, request):
+        form = UserCreationForm(request.POST)
 
-	return render(request, 'accounts/login.html', data)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password1')
+            user = authenticate(username=username, password=password)
+            login(request, user)
+            return redirect('home')
+        context = {
+            'form': form
+        }
+        return render(request, self.template_name, context)
+
+class Profile(View):
+
+    template_name = 'accounts/profile.html'
+
+    def get(self, request):
+        return render(request, self.template_name)
