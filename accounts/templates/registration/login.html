@@ -4,6 +4,11 @@
 {% block title %}Войти{% endblock %}
 
 {% block content %}
+    <style>
+        .zaregan {
+            display: none;
+        }
+    </style>
 	<div class="signup">
 		<h1>Авторизация</h1>
 		<form action="{% url 'login' %}" method="post">

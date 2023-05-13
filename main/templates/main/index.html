@@ -1,8 +1,10 @@
 {% extends 'main/layout.html' %}
 {% load static %}
 
-{% block title %}Главная{% endblock %}
+{% block title %}Задачи{% endblock %}
 
 {% block content %}
-	<h1>Главная</h1>
+    {% if user.is_authenticated %}
+	    <h1>Задачи</h1>
+    {% endif %}
 {% endblock %}

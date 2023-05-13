@@ -12,39 +12,46 @@
 <body>
 	<div class="navbar">
 		<ul>
-			<li><a href="{% url 'home' %}"><img src="{% static 'main/img/logo.png' %}"></a></li>
-			<li><a href="{% url 'play' %}"><p>Об игре</p></a></li>
-			<li><a href="{% url 'cards' %}"><p>База карт</p></a></li>
-			<li><a href="{% url 'tournaments' %}"><p>Турниры</p></a></li>
-			<li><a href="{% url 'about' %}"><p>О нас</p></a></li>
+			<li><a href="{% url 'home' %}" class="links"><p>Задачи</p></a></li>
+			<li><a href="{% url 'places' %}" class="links"><p>Места</p></a></li>
+			<li><a href="{% url 'casino' %}" class="links"><p>Казиныч</p></a></li>
 		</ul>
         <div class="auth">
             {% if user.is_authenticated %}
-                <a href="{% url 'profile' %}">{{ user }}</a>
-                <a href="{% url 'logout' %}"><img src="{% static 'main/img/sign-in.png' %}"></a>
+                <ul>
+                    <li><a href="{% url 'profile' %}"><p>{{ user }}</p></a></li>
+                    <li><a href="{% url 'logout' %}"><img src="{% static 'main/img/sign-in.png' %}"></a></li>
+                </ul>
             {% else %}
                 <a href="{% url 'login' %}"><img src="{% static 'main/img/reg.png' %}"></a>
             {% endif %}
         </div>
+        <div class="toggle_btn">
+        	<img src="{% static 'main/img/list.svg' %}">
+        </div>
 	</div>
-
-	<!-- <nav class="navbar">
-		<div class="home">
-			<a href="{% url 'home' %}"><img src="{% static 'main/img/logo.png' %}"></a>
-		</div>
-		<div class="play">
-			<a href="{% url 'play' %}">Об игре</a>
-		</div>
-		<div class="cards">
-			<a href="{% url 'cards' %}">База карт</a>
-		</div>
-		<div class="tournaments">
-			<a href="{% url 'tournaments' %}">Турниры</a>
-		</div>
-		<div class="about">
-			<a href="{% url 'about' %}">О нас</a>
-		</div>
-	</nav> -->
+    {% if not user.is_authenticated %}
+        <div class="zaregan">
+            <style>
+                .navbar{
+                    display: none;
+                }
+            </style>
+            <a class="zaregbtn" href="{% url 'login' %}"><p>Зарегистрироваться</p></a>
+        </div>
+    {% endif %}
+	<div class="dropdown_menu">
+		<li><a href="{% url 'home' %}" class="links"><p>Задачи</p></a></li>
+		<li><a href="{% url 'places' %}" class="links"><p>Места</p></a></li>
+		<li><a href="{% url 'casino' %}" class="links"><p>Казиныч</p></a></li>
+		{% if user.is_authenticated %}
+			<li><a href="{% url 'profile' %}"><p>Личный кабинет</p></a></li>
+			<li><a href="{% url 'logout' %}"><p>Выйти</p></a></li>
+		{% else %}
+			<li class="ddmenureg"><a href="{% url 'login' %}"><p>Зарегистрироваться</p></a></li>
+		{% endif %}
+	</div>
+	<script src="{% static 'main/js/script.js' %}"></script>
 	{% block content %}
 	{% endblock %}
 </body>

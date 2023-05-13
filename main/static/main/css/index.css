@@ -1,26 +1,64 @@
+@media(max-width: 900px){
+	.navbar li .links{
+		display: none;
+	}
+	.auth img, .register img{
+		display: none;
+	}
+}
+@media(min-width: 901px){
+	.navbar .toggle_btn{
+		display: none;
+	}
+}
 body{
 	background: #1F2022;
 	color: #fff;
+}
+.zaregan{
+	background-color: red;
+	border-radius: 20px;
+	color: #fff;
+	margin: 250px auto;
+	text-align: center;
+	width: 500px;
+	transition: transform .6s ease;
+	display: block;
+}
+.zaregan a{
+	text-decoration: none;
+	color: white;
+	font-size: 40px;
+	transition: transform .6s ease;
+}
+.zaregan a:hover, .zaregan:hover{
+	background: darkred;
+	color: dimgray;
+	transform: scale(1.05);
 }
 .navbar{
 	height: 75px;
 	background: #3C3F42;
 	color: #A8A8A8;
 }
+
 .navbar ul{
 	list-style-type: none;
 }
 .navbar li{
+	display: flex;
 	float: left;
-	margin-left: 30px;
+	margin-left: 250px;
 	font-size: 20px; 
 }
-.navbar img{
-	width: 100px;
-}
-.navbar a{
+.navbar .links{
 	color: #A8A8A8;
 	text-decoration: none;
+	display: block;
+	transition: transform .6s ease;
+}
+.navbar .mainimg{
+	width: 100px;
 	display: block;
 	transition: transform .6s ease;
 }
@@ -33,6 +71,51 @@ body{
 	color: #fff;
 	transform: scale(1.05);
 }
+/*DROPDOWN MENU*/
+.navbar .toggle_btn{
+	width: 40px;
+	height: 40px;
+	color: #fff;
+	margin-right: 40px;
+	margin-bottom: 25px;
+	cursor: pointer;
+}
+.dropdown_menu{
+	position: absolute;
+	right: 2rem;
+	top: 90px;
+	width: 300px;
+	background: rgb(255,255,255,0.1);
+	text-align: center;
+	display: none;
+	border-radius: 10px;
+}
+.dropdown_menu li{
+	list-style: none;
+	padding: 0.5rem;
+	font-size: 20px;
+}
+.dropdown_menu a{
+	text-decoration: none;
+	color: #fff;
+}
+.dropdown_menu .ddmenureg{
+	background: red;
+	border-radius: 20px;
+	color: #fff;
+	margin-left: 15px;
+	margin-right: 15px;
+	margin-bottom: 15px;
+}
+.dropdown_menu .ddmenureg p{
+	margin-top: 10px;
+}
+/*----------------------*/
+.navbar .toggle_btn img{
+	width: 40px;
+	height: 40px;
+}
+
 .register img{
 	width: 40px;
 	margin-right: 40px;
@@ -52,9 +135,29 @@ body{
 .signup span{
 	margin-left: 20px;
 }
+.auth ul{
+	list-style-type: none;
+}
+.auth li{
+	display: flex;
+	float: left;
+	margin-left: 40px;
+	font-size: 20px;
+	transition: transform .6s ease;
+	margin-bottom: 10px;
+}
+.auth a{
+	text-decoration: none;
+	color: #A8A8A8;
+}
 
+.auth a:hover, .auth li:hover{
+	color: #fff;
+	transform: scale(1.05);
+}
 .auth img{
 	width: 40px;
 	margin-right: 40px;
-	margin-bottom: 25px;
+	margin-top: 10px;
 }
+
