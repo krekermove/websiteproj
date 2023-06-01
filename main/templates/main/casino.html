@@ -3,5 +3,7 @@
 {% block title %}Казино{% endblock %}
 
 {% block content %}
-	<h1>Казино</h1>
+	{% if user.is_authenticated %}
+	    <h1>В РАЗРАБОТКЕ</h1>
+    {% endif %}
 {% endblock %}

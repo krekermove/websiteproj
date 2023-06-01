@@ -3,5 +3,7 @@
 {% block title %}Личный кабинет{% endblock %}
 
 {% block content %}
-	<h1>Личный кабинет</h1>
+	{% if user.is_authenticated %}
+	    <h1>Личный кабинет</h1>
+    {% endif %}
 {% endblock %}

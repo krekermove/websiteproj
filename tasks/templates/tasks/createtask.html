@@ -1,0 +1,17 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}Создать задачу{% endblock %}
+
+{% block content %}
+	{% if user.is_authenticated %}
+	    <h1>Накатать задачу</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.title }}<br>
+            {{ form.text }}<br>
+            {{ form.deadline }}<br>
+            <span>{{ error }}</span>
+            <button class="btn btn-success" type="submit">Создать</button>
+        </form>
+    {% endif %}
+{% endblock %}

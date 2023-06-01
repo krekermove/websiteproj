@@ -3,5 +3,7 @@
 {% block title %}Места{% endblock %}
 
 {% block content %}
-	<h1>Места</h1>
+    {% if user.is_authenticated %}
+	    <h1>Места</h1>
+    {% endif %}
 {% endblock %}

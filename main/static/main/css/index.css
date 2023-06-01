@@ -160,4 +160,47 @@ body{
 	margin-right: 40px;
 	margin-top: 10px;
 }
+.add_task_button{
+	width: 150px;
+	margin-left: 85%;
+}
+form {
+	margin-left: 5%;
+	margin-top: 20px;
+}
+form textarea{
+	height: 200px;
+}
+h1{
+	margin-left: 8%;
+}
+.tasks_article{
+	margin-left: 45%;
+}
+.tasks{
+	margin-top: 10px;
+	margin-left: 25%;
+	width: 700px;
+	background: #3C3F42;
+	align-items: center;
+	border-radius: 10px;
+	padding: 10px;
+}
+.tasks h3{
+	margin-left: 3%;
+}
+.tasks p{
+	margin-left: 3%;
+}
+.post a{
+	text-decoration: none;
+	color: #fff;
+}
+/*.post{
+	margin-top: 10px;
+	margin-left: 25%;
+	width: 700px;
+	align-items: center;
+	padding: 10px;
+}*/
 
