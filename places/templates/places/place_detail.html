@@ -1,0 +1,19 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}Место{% endblock %}
+
+{% block content %}
+	{% if user.is_authenticated %}
+	    <div class="places">
+            <h3>{{ object.title }}</h3>
+            <p>{{ object.user }}</p>
+            <p>Описание:</p>
+            <p>{{ object.text }}</p>
+            <p>Категория:</p>
+            <p>{{ object.deadline }}</p>
+            <p>Дата публикации:</p>
+            <p>{{ object.date }}</p>
+            <div>{{m | safe}}</div>
+        </div>
+    {% endif %}
+{% endblock %}

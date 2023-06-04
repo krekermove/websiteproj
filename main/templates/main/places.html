@@ -4,6 +4,21 @@
 
 {% block content %}
     {% if user.is_authenticated %}
-	    <h1>Места</h1>
+	    <h1 class="places_article">Места</h1>
+        <div class="add_place_button">
+            <a href="{% url 'add' %}"><button type="button" class="btn btn-info">Добавить место</button></a>
+        </div>
+        {% for el in places %}
+            <div class="post">
+                <a href="{{ el.get_absolute_url }}">
+                    <div class="places">
+                        <h3>{{ el.title }}</h3>
+                        <p>{{ el.user }}</p>
+                        <p>Дата публикации: {{ el.date }}</p>
+                        <p>Срок: {{ el.deadline }}</p>
+                    </div>
+                </a>
+            </div>
+        {% endfor %}
     {% endif %}
 {% endblock %}
