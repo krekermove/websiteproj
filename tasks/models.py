@@ -4,6 +4,7 @@ sys.path.append(os.path.abspath('../accounts.models'))
 from accounts.models import User
 from django.urls import reverse
 
+
 DEADLINE_CHOICES = (
     ('','Обозначить срок...'),
     ('Не срочно','Не срочно'),
