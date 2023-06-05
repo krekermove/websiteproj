@@ -8,4 +8,4 @@ def vinnik(request):
     return render(request, 'casino/door.html')
 
 def vasykov(request):
-    return render(request, 'casino/casino.html')
+    return render(request, 'casino/run.html')

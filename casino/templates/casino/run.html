@@ -1,0 +1,24 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+
+{% block title %}Казино{% endblock %}
+
+{% block content %}
+	{% if user.is_authenticated %}
+<div class="back">
+        <link rel="stylesheet" href="{% static 'casino/css/run.css' %}">
+	    <h1 class="textMessage" id="textMessage">Бег</h1>
+        <div class="game" id ="game">
+            <button id = "play" onclick="play()">PLAY</button>
+        </div>
+        <canvas id="canvas" width = "612" height="612"></canvas>
+        <script>
+            var casinoRedirect = '{% url "run" %}'
+            var pathToBg = '{% static "casino/img/forest.jpg" %}';
+            var pathToCharacter = '{% static "casino/img/character.png" %}';
+            var pathToCactus = '{% static "casino/img/cactus.png" %}';
+        </script>
+        <script src="{% static 'casino/js/run.js' %}"></script>
+</div>
+    {% endif %}
+{% endblock %}

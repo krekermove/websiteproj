@@ -1,4 +1,4 @@
-var level = 1
+var level = 3
 var door = 1
 
 function changeLevel(max) {

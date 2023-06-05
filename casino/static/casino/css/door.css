@@ -1,7 +1,7 @@
 .back{
   height: 800px;
   background-image: url("../img/back.png");
-  background-size: 1400px 900px;
+  background-size: 2100px 900px;
   position: sticky;
 }
 .textMessage{
@@ -41,4 +41,33 @@
   70% {
     background-image: url("../img/open_1.png");
   }
+}
+
+.listDoor{
+    list-style-type: none;
+}
+
+.listDoor a{
+    font-size: 30px;
+    margin-top: 15px;
+	font-family: inherit;
+	font-weight: bold;
+	color: #F0EDEE;
+}
+
+.textMessage{
+    margin: 0 auto;
+    text-align: center;
+    font-size: 45px;
+	font-family: inherit;
+	font-weight: bold;
+	color: #F0EDEE;
+}
+
+.btnPlay{
+    left: 100px;
+    margin: 15px;
+    font-size: 20px;
+	font-family: inherit;
+	font-weight: bold;
 }
