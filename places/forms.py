@@ -4,7 +4,7 @@ from django.forms import ModelForm, TextInput, Textarea, Select
 class PlacesForm(ModelForm):
     class Meta:
         model = Places
-        fields = ['title', 'text','user', 'date', 'deadline']
+        fields = ['title', 'text','user', 'date', 'deadline', 'lattitude', 'longtitude']
         widgets = {
             'deadline':Select(attrs={
                 'class': 'form-control'

@@ -18,6 +18,8 @@ class Places(models.Model):
     slug = models.SlugField(null=False, unique=False)
     date = models.DateField(blank=True, null=True)
     deadline = models.CharField(max_length=20, choices=DEADLINE_CHOICES, default="Выбрать категорию...")
+    lattitude = models.FloatField(verbose_name="Широта", default=0, blank=True)
+    longtitude = models.FloatField(verbose_name="Долгота", default=0, blank=True)
 
     def __str__(self):
         return self.title

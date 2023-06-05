@@ -5,6 +5,8 @@ from .forms import UserCreationForm
 import sys
 sys.path.append("..")
 from tasks.models import Tasks
+from django.core.mail import EmailMultiAlternatives
+from django.template.loader import render_to_string
 
 class Register(View):
 
@@ -22,6 +24,13 @@ class Register(View):
         if form.is_valid():
             email = str(form.cleaned_data.get('email'))
             if "@voenmeh.ru" in email:
+                data = {
+                    'name': form.cleaned_data['username']
+                }
+                html_body = render_to_string('registration/verify_email.html', data)
+                msg = EmailMultiAlternatives(subject='Подтверждение почты', to=[email],)
+                msg.attach_alternative(html_body, "txt/html")
+                msg.send()
                 form.save()
                 username = form.cleaned_data.get('username')
                 password = form.cleaned_data.get('password1')
