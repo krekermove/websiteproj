@@ -3,12 +3,29 @@ import datetime
 from django.shortcuts import render, redirect
 from .forms import TasksForm
 from .models import Tasks
-from django.views.generic import DetailView
+from django.views.generic import DetailView, DeleteView
 
 class TaskDetailView(DetailView):
     model = Tasks
     template_name = 'tasks/task_detail.html'
 
+class DeleteView(DeleteView):
+    model = Tasks
+    success_url = '/'
+
+    def delete(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        name = self.object.name
+        return super(DeleteView, self).delete(request, *args, **kwargs)
+
+def edit(request,object_id):
+    context={}
+
+    obj=Tasks.objects.get(id=object_id)
+    form=TasksForm(instance=obj)
+
+    context={'form':form}
+    return render(request,'editpage.html',context)
 
 def create(request):
     error = ''

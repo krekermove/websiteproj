@@ -23,5 +23,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('main.urls')),
     path('accounts/', include('accounts.urls')),
-    path('tasks/', include('tasks.urls'))
+    path('tasks/', include('tasks.urls')),
+    path('places/', include('places.urls')),
+    path('casino/', include('casino.urls')),
+    path('info/', include('info.urls'))
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

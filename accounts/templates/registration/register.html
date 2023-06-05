@@ -14,7 +14,7 @@
 		<form action="{% url 'register' %}" method="post">
 			{% csrf_token %}
             {{ form }}<br>
-			<span>{{error}}</span><br>
+			<span>{{ error }}</span><br>
 			<button class="btn btn-success" type="submit">Зарегистрироваться</button><br>
 			<span>Уже есть аккаунт?</span>
 			<a href="{% url 'login' %}">Войти</a>

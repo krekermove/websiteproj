@@ -1,0 +1,18 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}Добавить место{% endblock %}
+
+{% block content %}
+	{% if user.is_authenticated %}
+	    <h1>Задать место</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.title }}<br>
+            {{ form.text }}<br>
+            {{ form.deadline }}<br>
+            <div class="col-md-6">{{m | safe}}</div>
+            <span>{{ error }}</span>
+            <button class="btn btn-success" type="submit">Создать</button>
+        </form>
+    {% endif %}
+{% endblock %}

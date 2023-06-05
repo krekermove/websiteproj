@@ -1,9 +1,22 @@
 {% extends 'main/layout.html' %}
+{% load static %}
 
 {% block title %}Личный кабинет{% endblock %}
 
 {% block content %}
 	{% if user.is_authenticated %}
-	    <h1>Личный кабинет</h1>
+	    <h1>Мои задачи</h1>
+        {% for el in tasks %}
+            <div class="post">
+                <a href="{{ el.get_absolute_url }}">
+                    <div class="tasks">
+                        <h3>{{ el.title }}</h3>
+                        <p>{{ el.user }}</p>
+                        <p>Дата публикации: {{ el.date }}</p>
+                        <p>Срок: {{ el.deadline }}</p>
+                    </div>
+                </a>
+            </div>
+        {% endfor %}
     {% endif %}
 {% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+
+{% block title %}Казино{% endblock %}
+
+{% block content %}
+	{% if user.is_authenticated %}
+	    <h1>РАЗРАБОТКА ПОШЛА</h1>
+		<ul class="listGames">
+			<li><a href="{% url 'door' %}" class="liGames"><p>Поиск Винника</p></a></li>
+			<li><a href="{% url 'run' %}" class="liGames"><p>Бег с Васюковым</p></a></li>
+		</ul>
+    {% endif %}
+{% endblock %}

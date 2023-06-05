@@ -1,0 +1,25 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+
+{% block title %}Казино{% endblock %}
+
+{% block content %}
+	{% if user.is_authenticated %}
+        <link rel="stylesheet" href="{% static 'casino/css/door.css' %}">
+	    <h1>Дверь</h1>
+        <ul class="listDoor">
+			<li><a id="easy" class="liDoor" onclick="changeLevel(3)"><p>Легко</p></a></li>
+			<li><a id="hard" class="liDoor" onclick="changeLevel(2)"><p></p>Сложно</a></li>
+		</ul>
+        <div class="game" id ="game">
+            <button id = "play" onclick="play()">PLAY</button>
+        </div>
+        <script>
+            var casinoRedirect = '{% url "door" %}'
+            var pathToOpen = '{% static "casino/img/open.png" %}';
+            var pathToClose = '{% static "casino/img/close.jpg" %}';
+        </script>
+        <script src="{% static 'casino/js/door.js' %}"></script>
+
+    {% endif %}
+{% endblock %}
