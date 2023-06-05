@@ -4,7 +4,7 @@
 
 {% block content %}
 	{% if user.is_authenticated %}
-	    <div class="places">
+	    <div class="tasks">
             <h3>{{ object.title }}</h3>
             <p>{{ object.user }}</p>
             <p>Описание:</p>
@@ -13,7 +13,17 @@
             <p>{{ object.deadline }}</p>
             <p>Дата публикации:</p>
             <p>{{ object.date }}</p>
-            <div>{{m | safe}}</div>
+            {{m | safe}}
+            {% if object.user|stringformat:'s' == user.get_username|stringformat:'s' %}
+                <form action="{% url 'delete_view_place' pk=object.pk %}" method="POST">
+                    {% csrf_token %}
+                    <input class="btn btn-default btn-danger" type="submit" value="Удалить"/>
+                </form>
+                <form action="{% url 'edit_view' object.id %}" method="POST">
+                    {% csrf_token %}
+                    <input class="btn btn-default btn-warning" type="submit" value="Редактировать"/>
+                </form>
+            {% endif %}
         </div>
     {% endif %}
 {% endblock %}

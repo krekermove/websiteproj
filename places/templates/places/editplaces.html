@@ -1,10 +1,10 @@
 {% extends 'main/layout.html' %}
 
-{% block title %}Добавить место{% endblock %}
+{% block title %}Редактировать место{% endblock %}
 
 {% block content %}
 	{% if user.is_authenticated %}
-	    <h1>Задать место</h1>
+	    <h1>Редактировать место</h1>
         <form method="post">
             {% csrf_token %}
             {{ form.title }}<br>

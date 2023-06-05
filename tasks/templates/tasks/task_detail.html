@@ -14,7 +14,7 @@
             <p>Дата публикации:</p>
             <p>{{ object.date }}</p>
             {% if object.user|stringformat:'s' == user.get_username|stringformat:'s' %}
-                <form action="{% url 'delete_view' pk=object.pk %}" method="POST">
+                <form action="{% url 'delete_view_task' pk=object.pk %}" method="POST">
                     {% csrf_token %}
                     <input class="btn btn-default btn-danger" type="submit" value="Удалить"/>
                 </form>

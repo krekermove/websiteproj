@@ -1,21 +1,23 @@
 {% extends 'main/layout.html' %}
+{% load static %}
 
 {% block title %}Места{% endblock %}
 
 {% block content %}
     {% if user.is_authenticated %}
-	    <h1 class="places_article">Места</h1>
-        <div class="add_place_button">
-            <a href="{% url 'add' %}"><button type="button" class="btn btn-info">Добавить место</button></a>
+	    <h1 class="tasks_article">Места</h1>
+        <div class="add_task_button">
+            <a href="{% url 'add' %}"><button type="button" class="double-border-button">Добавить место</button></a>
         </div>
         {% for el in places %}
             <div class="post">
                 <a href="{{ el.get_absolute_url }}">
-                    <div class="places">
+                    <div class="tasks">
                         <h3>{{ el.title }}</h3>
                         <p>{{ el.user }}</p>
                         <p>Дата публикации: {{ el.date }}</p>
-                        <p>Срок: {{ el.deadline }}</p>
+                        <p>Категория: {{ el.deadline }}</p>
+                        <p>{{ error }}</p>
                     </div>
                 </a>
             </div>
