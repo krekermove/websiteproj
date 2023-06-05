@@ -39,7 +39,6 @@ class PlacesDetailView(DetailView):
         # context = self.get_context_data(object=self.object)
         return self.render_to_response(data)
 
-<<<<<<< HEAD
 class DeleteView(DeleteView):
     model = Places
     success_url = '/'
@@ -71,43 +70,6 @@ def add(request):
             instance.date = datetime.date.today()
             #instance.lattitude = float(point[0])
             #instance.longtitude = float(point[1])
-            instance.save()
-            return redirect('places')
-        else:
-            error = 'Форма заполнена неверно'
-=======
-
-def add(request):
-    error = ''
-    m = folium.Map(location=[59.916357316816026, 30.315987157004628], zoom_start=17)
-    formatter = "function(num) {return L.Util.formatNum(num, 5);};"
-    mouse_position = MousePosition(
-        position='topright',
-        separator=' | ',
-        empty_string='NaN',
-        lng_first=False,
-        num_digits=20,
-        prefix='Coordinates:',
-        lat_formatter=formatter,
-        lng_formatter=formatter,
-    )
-    m.add_child(mouse_position)
-    m.add_child(folium.ClickForMarker(popup=m.add_child(folium.LatLngPopup())))
-
-    point = m.location
-
-    m = m._repr_html_()
-    form = PlacesForm()
->>>>>>> 4feb583db01deab0642a2f3b123cba07eabc9d72
-
-    if request.method == 'POST':
-        form = PlacesForm(request.POST)
-        if form.is_valid():
-            instance = form.save(commit=False)
-            instance.user = request.user
-            instance.date = datetime.date.today()
-            instance.lattitude = float(point[0])
-            instance.longtitude = float(point[1])
             instance.save()
             return redirect('places')
         else:
