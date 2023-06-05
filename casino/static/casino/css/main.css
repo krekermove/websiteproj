@@ -1,0 +1,10 @@
+.listGames a{
+    font-size: 30px;
+    margin-top: 15px;
+	font-family: inherit;
+	font-weight: bold;
+	color: #F0EDEE;
+}
+.listGames{
+    list-style-type: none;
+}

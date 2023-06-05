@@ -5,9 +5,10 @@
 
 {% block content %}
 	{% if user.is_authenticated %}
+<div class="back">
         <link rel="stylesheet" href="{% static 'casino/css/door.css' %}">
-	    <h1>Дверь</h1>
-        <ul class="listDoor">
+	    <h1 class="textMessage" id="textMessage">Дверь</h1>
+        <ul class="listDoor" id="listDoor">
 			<li><a id="easy" class="liDoor" onclick="changeLevel(3)"><p>Легко</p></a></li>
 			<li><a id="hard" class="liDoor" onclick="changeLevel(2)"><p></p>Сложно</a></li>
 		</ul>
@@ -17,9 +18,10 @@
         <script>
             var casinoRedirect = '{% url "door" %}'
             var pathToOpen = '{% static "casino/img/open.png" %}';
-            var pathToClose = '{% static "casino/img/close.jpg" %}';
+            var pathToOpenBed = '{% static "casino/img/openBad.png" %}';
+            var pathToClose = '{% static "casino/img/close.png" %}';
         </script>
         <script src="{% static 'casino/js/door.js' %}"></script>
-
+</div>
     {% endif %}
 {% endblock %}

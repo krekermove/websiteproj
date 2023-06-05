@@ -12,8 +12,16 @@
 	}
 }
 body{
-	background: #1F2022;
+	background: #07393C;
 	color: #fff;
+}
+.place{
+  max-height: 100%;
+  max-width: 100%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 .zaregan{
 	background-color: red;
@@ -38,8 +46,7 @@ body{
 }
 .navbar{
 	height: 75px;
-	background: #3C3F42;
-	color: #A8A8A8;
+	background: #2c666e;
 }
 
 .navbar ul{
@@ -66,6 +73,7 @@ body{
 	margin-top: 15px;
 	font-family: inherit;
 	font-weight: bold;
+	color: #F0EDEE;
 }
 .navbar a:hover, .navbar li:hover{
 	color: #fff;
@@ -85,7 +93,7 @@ body{
 	right: 2rem;
 	top: 90px;
 	width: 300px;
-	background: rgb(255,255,255,0.1);
+	background: #75698c;
 	text-align: center;
 	display: none;
 	border-radius: 10px;
@@ -160,9 +168,41 @@ body{
 	margin-right: 40px;
 	margin-top: 10px;
 }
-.add_task_button{
-	width: 150px;
-	margin-left: 85%;
+.double-border-button {
+  height: 60px;
+  weight: 110px;
+  top: 250px;
+  left: 80%;
+  right: 0;
+  bottom: 0;
+  background: #07393c;
+  text-decoration: none;
+  display: inline-block;
+  margin: 10px 20px;
+  padding: 10px 30px;
+  position: relative;
+  border: 2px solid #f0edee;
+  color: #f0edee;
+  font-family: 'Montserrat', sans-serif;
+  transition: .4s;
+}
+.double-border-button:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  border: 2px solid rgba(240, 237, 238, 1);
+  transition: .4s;
+}
+.double-border-button:hover:after {
+  border-color: #f0edee;
+  width: calc(100% - 10px);
+  height: calc(100% + 10px);
 }
 form {
 	margin-left: 5%;
@@ -175,14 +215,22 @@ h1{
 	margin-left: 8%;
 }
 .tasks_article{
-	margin-left: 45%;
+    font-size: 40pt;
+    margin-top: 12px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+.listTasks{
+    align-items: center;
 }
 .tasks{
-	margin-top: 10px;
-	margin-left: 25%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+	margin-top: 25px;
 	width: 700px;
-	background: #3C3F42;
-	align-items: center;
+	background: #75698c;
 	border-radius: 10px;
 	padding: 10px;
 }
@@ -194,7 +242,7 @@ h1{
 }
 .post a{
 	text-decoration: none;
-	color: #fff;
+	color: #F0EDEE;
 }
 /*.post{
 	margin-top: 10px;
@@ -203,11 +251,21 @@ h1{
 	align-items: center;
 	padding: 10px;
 }*/
-#footer {
-    position: fixed; /* Фиксированное положение */
-    left: 0; bottom: 0; /* Левый нижний угол */
-    padding: 10px; /* Поля вокруг текста */
-    background: #39b54a; /* Цвет фона */
-    color: #fff; /* Цвет текста */
-    width: 100%; /* Ширина слоя */
+.footer {
+    bottom: 0;
+    left: 0;
+    padding: 10px 20px; /* Поля вокруг текста #0C91F0 */
+    background: #2c666e; /* Цвет фона */
+    margin-top: 20px;
+
    }
+.footer a{
+    padding: 10px; /* Поля вокруг текста */
+    color: #F0EDEE; /* Цвет текста */
+   }
+
+/*
+back: #0C91F0 / #113B7A / #194370
+up and foo: #2c666e
+text: #F0EDEE
+*/

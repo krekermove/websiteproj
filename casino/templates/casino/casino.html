@@ -5,10 +5,11 @@
 
 {% block content %}
 	{% if user.is_authenticated %}
-	    <h1>РАЗРАБОТКА ПОШЛА</h1>
+	    <h1>ИГРУШКИ</h1>
+		<link rel="stylesheet" href="{% static 'casino/css/main.css' %}">
 		<ul class="listGames">
-			<li><a href="{% url 'door' %}" class="liGames"><p>Поиск Винника</p></a></li>
-			<li><a href="{% url 'run' %}" class="liGames"><p>Бег с Васюковым</p></a></li>
+			<li><a href="{% url 'door' %}"><p class="liGames">Вероятностная комната</p></a></li>
+			<li><a href="{% url 'run' %}"><p class="liGames">Беги за зачеткой</p></a></li>
 		</ul>
     {% endif %}
 {% endblock %}

@@ -10,11 +10,13 @@
 	<link rel="icon" href="{% static 'main/img/favicon.png' %}" type="image/jpeg">
 </head>
 <body>
+<div class="place">
 	<div class="navbar">
 		<ul>
 			<li><a href="{% url 'home' %}" class="links"><p>Задачи</p></a></li>
 			<li><a href="{% url 'places' %}" class="links"><p>Места</p></a></li>
 			<li><a href="{% url 'casino' %}" class="links"><p>Казиныч</p></a></li>
+			<li><a href="{% url 'info' %}" class="links"><p>О нас</p></a></li>
 		</ul>
         <div class="auth">
             {% if user.is_authenticated %}
@@ -44,6 +46,7 @@
 		<li><a href="{% url 'home' %}" class="links"><p>Задачи</p></a></li>
 		<li><a href="{% url 'places' %}" class="links"><p>Места</p></a></li>
 		<li><a href="{% url 'casino' %}" class="links"><p>Казиныч</p></a></li>
+		<li><a href="{% url 'info' %}" class="links"><p>О нас</p></a></li>
 		{% if user.is_authenticated %}
 			<li><a href="{% url 'profile' %}"><p>Личный кабинет</p></a></li>
 			<li><a href="{% url 'logout' %}"><p>Выйти</p></a></li>
@@ -54,8 +57,6 @@
 	<script src="{% static 'main/js/script.js' %}"></script>
 	{% block content %}
 	{% endblock %}
-	<div id="footer">
-   		<a href="{% url 'info' %}"><p>&copy; SNOW TEAM</p></a>
-  	</div>
+</div>
 </body>
 </html>
