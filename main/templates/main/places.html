@@ -7,7 +7,7 @@
     {% if user.is_authenticated %}
 	    <h1 class="tasks_article">Места</h1>
         <div class="add_task_button">
-            <a href="{% url 'add' %}"><button type="button" class="double-border-button">Добавить место</button></a>
+            <a href="{% url 'add_place' %}"><button type="button" class="double-border-button">Добавить место</button></a>
         </div>
         {% for el in places %}
             <div class="post">

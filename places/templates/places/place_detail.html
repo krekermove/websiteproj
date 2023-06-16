@@ -13,13 +13,13 @@
             <p>{{ object.deadline }}</p>
             <p>Дата публикации:</p>
             <p>{{ object.date }}</p>
-            {{m | safe}}
+            <div>{{m | safe}}</div>
             {% if object.user|stringformat:'s' == user.get_username|stringformat:'s' %}
                 <form action="{% url 'delete_view_place' pk=object.pk %}" method="POST">
                     {% csrf_token %}
                     <input class="btn btn-default btn-danger" type="submit" value="Удалить"/>
                 </form>
-                <form action="{% url 'edit_view' object.id %}" method="POST">
+                <form action="{% url 'edit_view_place' object.id %}" method="POST">
                     {% csrf_token %}
                     <input class="btn btn-default btn-warning" type="submit" value="Редактировать"/>
                 </form>

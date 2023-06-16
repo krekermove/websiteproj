@@ -6,9 +6,8 @@
 {% block content %}
     {% if user.is_authenticated %}
 	    <h1 class="tasks_article">Задачи</h1>
-        <div>
-            <a href="{% url 'create' %}"><button type="button" class="double-border-button">Добавить задачу</button></a>
-        </div>
+
+        <a href="{% url 'create' %}"><button type="button" class="double-border-button">Добавить задачу</button></a>
         <div class="listTasks">
             {% for el in tasks %}
                 <div class="post">

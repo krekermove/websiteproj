@@ -18,14 +18,28 @@ class DeleteView(DeleteView):
         name = self.object.name
         return super(DeleteView, self).delete(request, *args, **kwargs)
 
-def edit(request,object_id):
-    context={}
+def edit(request, pk):
+    if request.method == 'POST':
+        form = TasksForm(request.POST)
+        error = ''
+        if form.is_valid():
+            instance = form.save(commit=False)
+            Tasks.objects.filter(id=pk).update(
+                title=instance.title,
+                text=instance.text,
+                date=datetime.date.today(),
+                deadline=instance.deadline
+            )
+            return redirect('home')
+        else:
+            error = 'Ошибка заполнения'
 
-    obj=Tasks.objects.get(id=object_id)
-    form=TasksForm(instance=obj)
-
-    context={'form':form}
-    return render(request,'editpage.html',context)
+    obj = Tasks.objects.get(id=pk)
+    form = TasksForm(instance=obj)
+    context = {
+        'form': form
+    }
+    return render(request, 'tasks/editpage.html', context)
 
 def create(request):
     error = ''

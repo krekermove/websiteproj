@@ -18,7 +18,7 @@
                     {% csrf_token %}
                     <input class="btn btn-default btn-danger" type="submit" value="Удалить"/>
                 </form>
-                <form action="{% url 'edit_view' object.id %}" method="POST">
+                <form action="{% url 'edit_view_task' pk=object.pk %}" method="POST">
                     {% csrf_token %}
                     <input class="btn btn-default btn-warning" type="submit" value="Редактировать"/>
                 </form>
